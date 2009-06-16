@@ -16,6 +16,8 @@ import java.io.Serializable;
 
 public class StationName implements Serializable {
 
+    private static final long serialVersionUID = 4509557855817257433L;
+    
     private final String _name;
     
     private StationName( final String name ) {

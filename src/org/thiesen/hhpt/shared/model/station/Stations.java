@@ -11,6 +11,7 @@
  */
 package org.thiesen.hhpt.shared.model.station;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,6 +20,10 @@ import java.util.List;
 public class Stations implements Iterable<Station> {
 
     private final List<Station> _stations;
+    
+    public Stations( final Collection<Station> stations ) {
+        _stations = new LinkedList<Station>( stations );
+    }
     
     public Stations() {
         _stations = new LinkedList<Station>();
@@ -57,6 +62,11 @@ public class Stations implements Iterable<Station> {
 
     public int size() {
         return _stations.size();
+    }
+
+    public boolean isNotEmpty() {
+        return !_stations.isEmpty();
+        
     }
    
 }

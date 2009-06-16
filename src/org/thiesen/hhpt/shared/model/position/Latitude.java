@@ -14,6 +14,8 @@ package org.thiesen.hhpt.shared.model.position;
 
 public class Latitude extends GeoCoordValue {
 
+    private static final long serialVersionUID = -4027737685805421591L;
+
     private Latitude( final Double value ) {
         super( value );
     }

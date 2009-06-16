@@ -13,6 +13,8 @@ package org.thiesen.hhpt.shared.model.position;
 
 public class Longitude extends GeoCoordValue {
 
+    private static final long serialVersionUID = 612319579323053767L;
+
     private Longitude( final Double value ) {
         super( value );
     }

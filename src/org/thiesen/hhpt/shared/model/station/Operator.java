@@ -16,6 +16,8 @@ import java.io.Serializable;
 
 public class Operator implements Serializable {
 
+    private static final long serialVersionUID = -9178938300687132594L;
+    
     private final String _name;
     
     private Operator( final String name ) {
