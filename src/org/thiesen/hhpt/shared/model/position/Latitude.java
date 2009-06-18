@@ -44,4 +44,12 @@ public class Latitude extends GeoCoordValue {
         
     }
 
+    public static Latitude valueOf( final double lat ) {
+        return new Latitude( Double.valueOf( lat ) );
+    }
+    
+    
+    
+    
+
 }

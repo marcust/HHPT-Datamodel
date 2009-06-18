@@ -78,5 +78,15 @@ public class Stations implements Iterable<Station> {
         return !_stations.isEmpty();
         
     }
+
+    public static Stations union( final Stations... stations ) {
+        final Stations retval = new Stations();
+        
+        for ( final Stations s : stations ) {
+            retval._stations.addAll( s._stations );
+        }
+        
+        return retval;
+    }
    
 }

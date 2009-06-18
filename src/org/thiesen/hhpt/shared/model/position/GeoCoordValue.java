@@ -71,7 +71,11 @@ public abstract class GeoCoordValue extends Number {
         return _value;
     }
    
-
+    @Override
+    public String toString() {
+        return _value.toString();
+    }
+    
 
    
     

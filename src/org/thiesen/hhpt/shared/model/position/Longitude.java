@@ -43,5 +43,9 @@ public class Longitude extends GeoCoordValue {
         return valueBetween( minLon, maxLon );
     }
 
+    public static Longitude valueOf( final double lon ) {
+        return new Longitude( Double.valueOf( lon ) );
+    }
+
   
 }
