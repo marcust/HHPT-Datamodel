@@ -21,14 +21,16 @@
 
 package org.thiesen.hhpt.shared.model.station;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 
-public class Stations implements Iterable<Station> {
+public class Stations implements Iterable<Station>, Serializable {
 
+    private static final long serialVersionUID = -3475592481658583419L;
     private final List<Station> _stations;
     
     public Stations( final Collection<Station> stations ) {
@@ -40,8 +42,8 @@ public class Stations implements Iterable<Station> {
     }
     
 
-    public void add( final String id, final String latitude, final String longitude, final StationType type, final String name, final String operator ) {
-        _stations.add( Station.createStation( id, latitude, longitude, type, name, operator )  );
+    public void add( final String id, final String latitude, final String longitude, final String geohash, final StationType type, final String name, final String operator ) {
+        _stations.add( Station.createStation( id, latitude, longitude, geohash, type, name, operator )  );
     }
 
     

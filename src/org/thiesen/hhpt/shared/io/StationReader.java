@@ -116,6 +116,7 @@ private Station readOneStation() {
             readOneField(),
             readOneField(),
             readOneField(),
+            readOneField(),
             readOneField());
 
     skipNextline();

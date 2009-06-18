@@ -30,19 +30,22 @@ public class Position implements Serializable {
     
     private final Latitude _lat;
     private final Longitude _lon;
+    private final GeoHash _hash;
     
-    private Position( final Latitude latitude, final Longitude longitude ) {
+    private Position( final Latitude latitude, final Longitude longitude, final GeoHash hash ) {
         _lon = longitude;
         _lat = latitude;
+        _hash = hash;
     }
     
-    public static Position valueOf( final String latitude, final String longitude ) {
-        return new Position( Latitude.valueOf( latitude ), Longitude.valueOf( longitude ) );
+    public static Position valueOf( final String latitude, final String longitude, final String hash ) {
+        return new Position( Latitude.valueOf( latitude ), Longitude.valueOf( longitude ), GeoHash.valueOf( hash ) );
     }
 
     public void appendWithSep( final StringBuilder retval, final char sep ) {
         _lat.appendWithSep( retval, sep );
         _lon.appendWithSep( retval, sep );
+        _hash.appendWithSep( retval, sep );
     }
 
     public int getLatitudeE6() {
@@ -68,13 +71,16 @@ public class Position implements Serializable {
         return _lon.getValue();
     }
 
-    public static Position valueOf( final double lat, final double lon ) {
-        return new Position( Latitude.valueOf( lat ), Longitude.valueOf( lon ) );
-    }
     
     @Override
     public String toString() {
         return _lat.toString() + ", " + _lon.toString();
     }
+
+    public String getGeoHashValue() {
+        return _hash.getValue();
+        
+    }
+
     
 }
