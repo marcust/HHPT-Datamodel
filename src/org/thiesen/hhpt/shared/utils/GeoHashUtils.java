@@ -17,8 +17,6 @@
 
 package org.thiesen.hhpt.shared.utils;
 
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Based on http://en.wikipedia.org/wiki/Geohash

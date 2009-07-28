@@ -15,6 +15,8 @@ import java.io.Serializable;
 
 public class GeoHash implements Serializable {
 
+    private static final long serialVersionUID = -1637784102984530901L;
+    
     private final String _value;
     
     private GeoHash( final String value ) {

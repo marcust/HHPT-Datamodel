@@ -26,9 +26,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.util.Iterator;
 
@@ -37,7 +40,9 @@ import org.thiesen.hhpt.shared.model.station.Station;
 
 public class StationReader implements Iterable<Station> {
 
-    private final ByteBuffer _fileContentsBuffer;
+    private final ReadableByteInput _fileContentsBuffer;
+    
+    
     final byte[] _charBuffer = new byte[ 1024 * 1024 ]; 
     private Station _nextStation;
 
@@ -47,25 +52,18 @@ public class StationReader implements Iterable<Station> {
 
 
     public StationReader( final File file ) throws FileNotFoundException, IOException {
-        _fileContentsBuffer = mapFile( file );
+        _fileContentsBuffer = new ByteBufferWrapper( mapFile( file ) );
     }
 
 
     public StationReader( final FileChannel channel ) throws FileNotFoundException, IOException {
-        _fileContentsBuffer = mapFile( channel );
+        _fileContentsBuffer = new ByteBufferWrapper( mapFile( channel ) );
     }
 
 
     public StationReader( final InputStream stream ) throws IOException {
-        final ByteArrayOutputStream os = new ByteArrayOutputStream();
-
-        final byte[] b = new byte[1024];  
-        int read;  
-        while ((read = stream.read(b)) != -1) {  
-            os.write(b, 0, read);  
-        }  
+        _fileContentsBuffer = new StreamWrapper( stream );
     
-        _fileContentsBuffer = ByteBuffer.wrap( os.toByteArray() );
     }  
     
 

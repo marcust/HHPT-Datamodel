@@ -93,6 +93,10 @@ public class StationId extends Number {
         }
         return true;
     }
+
+    public static StationId valueOf( final int stationId ) {
+        return new StationId( Long.valueOf( stationId ) );
+    }
     
     
 
