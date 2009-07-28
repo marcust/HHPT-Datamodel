@@ -43,16 +43,16 @@ public class Station implements Serializable {
         return new Station( id, p, t, n, o );
     }
     
-    public static Station createStation( final String id, final String latitude, final String longitude, final String geohash, final StationType type, final String name, final String operator ) {
+    public static Station createStation( final String id, final String latitude, final String longitude, final StationType type, final String name, final String operator ) {
         final StationId stationId = StationId.valueOf( id );
-        final Position pos = Position.valueOf( latitude, longitude, geohash );
+        final Position pos = Position.valueOf( latitude, longitude );
         final StationName stationName = StationName.valueOf( name );
         final Operator op = Operator.valueOf( operator );
         return createStation( stationId, pos, type, stationName, op );
     }
 
-    public static Station createStation( final String id, final String latitude, final String longitude, final String geohash, final String type, final String name, final String operator ) {
-        return createStation( id, latitude, longitude, geohash, StationType.valueOf( type ), name, operator );
+    public static Station createStation( final String id, final String latitude, final String longitude, final String type, final String name, final String operator ) {
+        return createStation( id, latitude, longitude, StationType.valueOf( type ), name, operator );
     }
 
     
@@ -132,18 +132,6 @@ public class Station implements Serializable {
         
         return true;
     }
-
-    public String getGeoHashValue() {
-        return _position.getGeoHashValue(); 
-        
-    }
-    
-    
-    
-    
-
-
-
 
     
 }

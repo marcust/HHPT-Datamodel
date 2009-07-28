@@ -42,8 +42,8 @@ public class Stations implements Iterable<Station>, Serializable {
     }
     
 
-    public void add( final String id, final String latitude, final String longitude, final String geohash, final StationType type, final String name, final String operator ) {
-        _stations.add( Station.createStation( id, latitude, longitude, geohash, type, name, operator )  );
+    public void add( final String id, final String latitude, final String longitude, final StationType type, final String name, final String operator ) {
+        _stations.add( Station.createStation( id, latitude, longitude, type, name, operator )  );
     }
 
     
