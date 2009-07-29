@@ -57,7 +57,7 @@ public class StationReader implements Iterable<Station> {
     }
 
 
-    public StationReader( final InputStream stream ) throws IOException {
+    public StationReader( final InputStream stream ) {
         _fileContentsBuffer = new StreamWrapper( stream );
     
     }  

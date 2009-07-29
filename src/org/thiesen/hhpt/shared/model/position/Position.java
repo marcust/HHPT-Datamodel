@@ -74,5 +74,14 @@ public class Position implements Serializable {
         return _lat.toString() + ", " + _lon.toString();
     }
 
+    public static Position valueOf( final int latitudeE6, final int longitudeE6 ) {
+        return new Position( Latitude.valueOfE6( latitudeE6 ), Longitude.valueOf( longitudeE6 ) );
+    }
+
+    public static Position valueOf( final double lat, final double lon ) {
+        return new Position( Latitude.valueOf( lat ), Longitude.valueOf( lon ) );
+        
+    }
+
     
 }

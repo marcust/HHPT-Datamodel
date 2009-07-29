@@ -23,7 +23,7 @@ public class Station implements Serializable {
 
     private static final long serialVersionUID = 5805270188434101339L;
     
-    public static final String STATION = "STATION";
+    public static final String STATION = "org.thiesen.hhpt.shared.model.station.Station";
     private final StationId _id;
     private final Position _position;
     private final StationType _type;
